@@ -2,7 +2,7 @@
 // API CONNECTION
 // ===============================
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://docai-0uf4.onrender.com";
 
 //
 async function uploadDocument(file) {
