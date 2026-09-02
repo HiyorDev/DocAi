@@ -22,7 +22,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://hiyordev.github.io/DocAi/"
+        "https://hiyordev.github.io"
     ],
     allow_credentials=True,
     allow_methods=["*"],
