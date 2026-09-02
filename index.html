@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocAI — Understand your documents</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===============================
+       HEADER
+       =============================== -->
+  <header class="header">
+    <div class="header__logo">DocAI</div>
+    <div class="header__status">
+      <span class="status-dot" id="statusDot" aria-hidden="true"></span>
+      <span id="statusText">API: Not connected</span>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ===============================
+         UPLOAD SCREEN
+         =============================== -->
+    <section class="screen screen--upload" id="uploadScreen">
+      <div class="upload-content">
+        <h1 class="hero-title">Understand your documents.</h1>
+        <p class="hero-subtitle">Upload a document and ask anything about it.</p>
+
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload a document">
+          <input type="file" id="fileInput" class="dropzone__input" accept=".pdf,.docx,.xlsx" hidden>
+
+          <div class="dropzone__idle" id="dropzoneIdle">
+            <svg class="dropzone__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 4V16M12 4L7 9M12 4L17 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 16V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="dropzone__text">Drag a file here, or click to select</p>
+            <p class="dropzone__formats">PDF · DOCX · XLSX</p>
+          </div>
+
+          <div class="dropzone__file" id="dropzoneFile" hidden>
+            <div class="file-info">
+              <span class="file-info__ext" id="fileExt">PDF</span>
+              <div class="file-info__meta">
+                <p class="file-info__name" id="fileName">document.pdf</p>
+                <p class="file-info__state" id="fileState">Selected</p>
+              </div>
+            </div>
+            <button class="file-info__remove" id="removeFile" type="button" aria-label="Remove file">Remove</button>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" id="uploadBtn" disabled>Upload document</button>
+      </div>
+    </section>
+
+    <!-- ===============================
+         CHAT SCREEN
+         =============================== -->
+    <section class="screen screen--chat" id="chatScreen" hidden>
+      <div class="chat-header">
+        <div class="chat-header__doc">
+          <span class="chat-header__name" id="chatDocName">document.pdf</span>
+          <span class="ready-indicator">
+            <span class="ready-indicator__dot"></span>
+            Ready
+          </span>
+        </div>
+        <button class="btn btn--ghost" id="newDocBtn" type="button">New document</button>
+      </div>
+
+      <div class="chat-log" id="chatLog"></div>
+
+      <form class="chat-input" id="chatForm">
+        <input
+          type="text"
+          id="chatInput"
+          class="chat-input__field"
+          placeholder="Ask anything about your document..."
+          autocomplete="off"
+        >
+        <button type="submit" class="chat-input__send" id="sendBtn" aria-label="Send question">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
